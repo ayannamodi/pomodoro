@@ -1,0 +1,328 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #fff782;
+    background-image: url('pexels-photo-6764192.webp');
+    background-size: cover;
+    background-position: center;
+}
+
+.header {
+    width: 100%;
+    text-align: center;
+    font-size: 2rem;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 10px 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+#signupScreen {
+    background: rgba(255, 255, 255, 0.8);
+    padding: 40px 20px 20px 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    width: 90%;
+    max-width: 500px;
+    position: relative;
+    z-index: 1;
+}
+
+.welcome-container {
+    text-align: center;
+    margin-bottom: 20px;
+    background: rgba(255, 255, 255, 0.8);
+    padding: 40px 20px 20px 20px;
+    border-radius: 10px;
+    margin-top: 400px;
+    width: 90%;
+    max-width: 800px;
+}
+
+/* Base styles for both dropdowns */
+.info-dropdown {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 5px;
+    padding: 5px;
+    z-index: 1001;
+    box-sizing: border-box; /* Add this to include padding in width calculation */
+}
+
+/* Specific styles for About Pomodoro dropdown */
+#signupScreen .info-dropdown {
+    top: 15px;
+    width: 400px;
+}
+
+/* Specific styles for How It Works dropdown */
+#appScreen .info-dropdown {
+    top: 0;
+    width: 500px;
+    max-height: 400px;
+    overflow-y: auto;
+    overflow-x: hidden; /* Hide horizontal scrollbar */
+}
+
+/* Customize scrollbar for webkit browsers */
+#appScreen .info-dropdown::-webkit-scrollbar {
+    width: 8px;
+}
+
+#appScreen .info-dropdown::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 4px;
+}
+
+#appScreen .info-dropdown::-webkit-scrollbar-thumb {
+    background: #3f88c5;
+    border-radius: 4px;
+}
+
+.info-dropdown summary {
+    cursor: pointer;
+    padding: 10px;
+    color: #3f88c5;
+    font-weight: bold;
+    font-size: 1.1rem;
+    list-style: none;
+    text-align: center;
+    width: 100%;
+}
+
+.info-dropdown summary::-webkit-details-marker {
+    display: none;
+}
+
+.info-dropdown[open] summary {
+    margin-bottom: 10px;
+}
+
+.info-dropdown .dropdown-content {
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    font-size: 1.1rem;
+    line-height: 1.6;
+    text-align: left;
+}
+
+#studyScreen {
+    background-image: url('pexels-photo-5088017.webp');
+    background-size: cover;
+    background-position: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    margin: 0;
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#timerContainer {
+    position: relative;
+    z-index: 2;
+    background: rgba(255, 255, 255, 0.7);
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 100px;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#studyHeader {
+    text-align: center;
+    width: 100%;
+}
+
+h1, h2 {
+    text-align: center;
+    font-size: 2rem;
+}
+
+h1.main-title {
+    font-size: 3rem;
+    background: rgba(255, 255, 255, 0.5);
+    padding: 10px;
+    border-radius: 5px;
+}
+
+#MonthlyProgressButton, #UpcomingExamsButton, #skipTimeButton, #startStopTimer, #backToExams {
+    font-size: 1.5rem;
+    color: #3f88c5;
+    cursor: pointer;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #fff;
+    transition: background-color 0.3s;
+}
+
+#MonthlyProgressButton:hover, #UpcomingExamsButton:hover, #skipTimeButton:hover, #startStopTimer:hover, #backToExams:hover {
+    background-color: #e0e0e0;
+}
+
+#examList .exam-item {
+    width: calc(100% - 40px);
+    margin: 10px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    font-size: 1.5rem;
+    box-sizing: border-box;
+}
+
+#examList {
+    max-height: 300px;
+    overflow-y: auto;
+    width: 100%;
+    padding: 0 20px;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 30px;
+    margin: 20px 0;
+    background-color: #e0e0e0;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.progress {
+    height: 100%;
+    background-color: #4caf50;
+    transition: width 0.3s ease;
+}
+
+#studyEndMessage {
+    text-align: center;
+}
+
+#timerDisplay {
+    font-size: 10rem;
+    color: rgb(39, 25, 13);
+    text-align: center;
+}
+
+#signupForm input {
+    width: 94%;
+    height: 50px;
+    font-size: 1.2rem;
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.signin-option {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.input-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.input-container input {
+    width: 100%;
+    height: 50px;
+    font-size: 1.2rem;
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#examForm button {
+    font-size: 1.2rem;
+    padding: 10px 20px;
+}
+
+#MonthlyProgressScreen p {
+    font-size: 2rem;
+    margin: 20px;
+    padding: 15px 25px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+#upcomingExamsList div {
+    font-size: 2rem;
+    margin: 15px 20px;
+    padding: 15px 25px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+#MonthlyProgressScreen, #UpcomingExamsScreen {
+    padding: 20px;
+    margin: 20px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#MonthlyProgressScreen h1, #UpcomingExamsScreen h1 {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    color: #333;
+    text-align: center;
+}
+
+#backToMainMenu, #backToMainMenuFromUpcoming {
+    font-size: 1.5rem;
+    padding: 12px 24px;
+    margin: 20px auto;
+    display: block;
+    background-color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+#backToMainMenu:hover, #backToMainMenuFromUpcoming:hover {
+    background-color: #f0f0f0;
+}
+
+#signupForm h2 {
+    margin-top: 30px;
+}
+
+#welcomeMessage {
+    margin-top: 30px;
+    font-size: 2.2rem;
+}
+
+/* Make sure containers have relative positioning */
+#signupScreen, #appScreen {
+    position: relative;
+}

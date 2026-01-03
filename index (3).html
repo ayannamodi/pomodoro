@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Standard meta tags for character encoding and responsive design -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Page title and external stylesheet link -->
+    <title>Pomodoro App</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="containe">
+        <!-- Main header for the application -->
+        <div class="header">Podomoro</div>
+
+        <!-- Authentication Screens -->
+        <!-- Signup screen with user registration and app introduction -->
+        <div id="signupScreen">
+            <!-- Expandable dropdown with detailed app explanation -->
+            <details class="info-dropdown">
+                <summary>About Pomodoro ▼</summary>
+                <div class="dropdown-content">
+                    <!-- Comprehensive description of app's purpose and methodology -->
+                    <p>Welcome to Pomodoro - Your Intelligent Study Companion!</p>
+                    <p>Pomodoro leverages the proven Pomodoro Technique, a time management method particularly for STEM subjects that uses 25-minute study sessions followed by short breaks to optimize learning and prevent mental fatigue.</p>
+                    <p>Unlike traditional calendars that simply track exam dates, Pomodoro intelligently calculates your required study sessions based on your course content and timeline. This adaptive approach ensures you're adequately prepared, even when unexpected events like snow days disrupt your schedule.</p>
+                    <p>By breaking down your study material into manageable sessions and tracking your progress, a feature specifically implemented for the neurodiverse community, Pomodoro helps you maintain a consistent and effective study routine while avoiding last-minute cramming.</p>
+                </div>
+            </details>
+
+            <!-- User registration form with required fields -->
+            <form id="signupForm">
+                <h2>Sign Up</h2>
+                <!-- Input fields for user registration -->
+                <input type="text" id="name" placeholder="Name" required />
+                <input type="text" id="username" placeholder="Username" required />
+                <input type="password" id="password" placeholder="Password" required />
+                <button type="submit">Sign Up</button>
+            </form>
+
+            <!-- Alternative sign-in option -->
+            <div class="signin-option">
+                <p>Already have an account? <a href="#" id="signinLink">Sign In</a></p>
+            </div>
+        </div>
+
+        <!-- Main App Interface -->
+        <!-- Main screen for exam management and study tracking -->
+        <div id="appScreen" style="display: none;">
+            <!-- Expandable dropdown explaining app functionality -->
+            <details class="info-dropdown">
+                <summary>How It Works ▼</summary>
+                <div class="dropdown-content">
+                    <!-- Step-by-step guide to using the app -->
+                    <p>Getting Started with Pomodoro:</p>
+                    <ol>
+                        <li>Enter your exam details: <ul>
+                                <li>Subject name (e.g., "Biology Chapter 5")</li>
+                                <li>Number of subtopics in the unit</li>
+                                <li>Exam date</li>
+                            </ul>
+                        </li>
+                        <li>Pomodoro will automatically calculate your study schedule by: <ul>
+                                <li>Determining the days available until your exam</li>
+                                <li>Allocating 30-minute study sessions per subtopic</li>
+                                <li>Distributing these sessions evenly across your available days</li>
+                            </ul>
+                        </li>
+                        <li>Click "Study" to begin a focused 25-minute session, followed by a 5-minute break</li>
+                        <li>For the neurodiverse community or anyone to track the statistics, a monthly progress and upcoming exams feature.</li>
+                    </ol>
+                </div>
+            </details>
+
+            <!-- Welcome message and navigation buttons -->
+            <div class="welcome-container">
+                <h1 id="welcomeMessage">Welcome to Podomoro, <span id="userName"></span>!</h1>
+                <div class="button-container" style="display: flex; justify-content: space-between; width: 100%;">
+                    <button id="UpcomingExamsButton">Upcoming Exams</button>
+                    <button id="MonthlyProgressButton">Monthly Progress</button>
+                </div>
+            </div>
+
+            <!-- Exam entry form -->
+            <h1 class="main-title">Enter Exams Here</h1>
+            <form id="examForm">
+                <div class="input-container">
+                    <!-- Input fields for exam details -->
+                    <input type="text" id="subject" placeholder="Subject" required />
+                    <input type="number" id="subtopics" placeholder="Number of Subtopics" required />
+                    <input type="date" id="examDate" required placeholder="Exam Date (mm/dd/yyyy)" />
+                </div>
+                <button type="submit">Add Exam</button>
+            </form>
+
+            <!-- Scrollable list of added exams -->
+            <div id="examList" style="max-height: 300px; overflow-y: auto;"></div>
+        </div>
+
+        <!-- Study Interface -->
+        <!-- Screen for active study sessions and timer -->
+        <div id="studyScreen" style="display: none;">
+            <!-- Dynamic header showing current study/break state -->
+            <h1 id="studyHeader" style="margin-top: 60px;"></h1>
+
+            <!-- Timer container with control buttons -->
+            <div id="timerContainer" style="text-align: center; margin-top: 20px;">
+                <!-- Timer display -->
+                <div id="timerDisplay" style="margin-bottom: 10px;">00:00</div>
+                
+                <!-- Timer and navigation buttons -->
+                <div style="display: flex; justify-content: center; gap: 10px;">
+                    <button id="startStopTimer">Start Timer</button>
+                    <button id="backToExams">Back to Exams</button>
+                    <button id="skipTimeButton">Skip Time</button>
+                </div>
+            </div>
+
+            <!-- Message displayed after completing a study session -->
+            <div id="studyEndMessage" style="display: none;">
+                <h2>Study Session Over!</h2>
+                <button id="returnToMainMenu">Return to Main Menu</button>
+            </div>
+        </div>
+
+        <!-- Progress Screens -->
+        <!-- Monthly progress tracking screen -->
+        <div id="MonthlyProgressScreen" style="display: none;">
+            <h1>Monthly Progress</h1>
+            <!-- Placeholders for dynamically updated progress statistics -->
+            <p id="subjectsThisMonth"></p>
+            <p id="examsThisMonth"></p>
+            <p id="subjectsStarted"></p>
+            <p id="subjectsCompleted"></p>
+            <button id="backToMainMenu">Back to Main Menu</button>
+        </div>
+
+        <!-- Upcoming exams display screen -->
+        <div id="UpcomingExamsScreen" style="display: none;">
+            <h1>Upcoming Exams</h1>
+            <!-- Container for dynamically generated list of upcoming exams -->
+            <div id="upcomingExamsList"></div>
+            <button id="backToMainMenuFromUpcoming">Back to Main Menu</button>
+        </div>
+
+        <!-- JavaScript file for application logic -->
+        <script src="script.js"></script>
+    </div>
+</body>
+</html>
